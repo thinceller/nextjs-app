@@ -1,11 +1,7 @@
-import Link from 'next/link'
+import Layout from '../components/MyLayout'
 
 export default () => (
-  <div>
-    Click{' '}
-    <Link href="/about">
-      <a>here</a>
-    </Link>{' '}
-    to read more
-  </div>
+  <Layout>
+    <h2>This is top page.</h2>
+  </Layout>
 )
