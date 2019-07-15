@@ -4,7 +4,7 @@ const linkStyle = {
   marginRight: 15
 }
 
-const Header = () => (
+const Header: React.FC = () => (
   <nav>
     <Link href="/">
       <a style={linkStyle}>home</a>
