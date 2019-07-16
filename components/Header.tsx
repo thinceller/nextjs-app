@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const linkStyle = {
   marginRight: 15
-}
+};
 
 const Header: React.FC = () => (
   <nav>
@@ -13,6 +13,6 @@ const Header: React.FC = () => (
       <a style={linkStyle}>about</a>
     </Link>
   </nav>
-)
+);
 
-export default Header
+export default Header;
