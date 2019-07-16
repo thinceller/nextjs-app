@@ -6,13 +6,32 @@
 	// Uncomment the next line if you want to publish any ports.
 	"appPort": ["3000:3000"],
 
+	// Uncomment the line below if you want to keep your containers running after VS Code shuts down.
+	// "shutdownAction": "none",
+
 	// Uncomment the next line if you want to add in default container specific settings.json values
-	// "settings":  { "workbench.colorTheme": "Quiet Light" },
+	"settings":  {
+		"eslint.autoFixOnSave": true,
+		"eslint.options": {
+			"configFile": "./.eslintrc.json"
+		},
+		"eslint.validate": [
+			"javascript",
+			"javascriptreact",
+			{ "language": "typescript", "autoFix": true },
+			{ "language": "typescriptreact", "autoFix": true }
+		]
+	},
 
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
 
 	"extensions": [
+		"dbaeumer.vscode-eslint",
 		"ms-vscode.vscode-typescript-tslint-plugin"
-	]
+	],
+	// Mount your .ssh folder to /root/.ssh-localhost so we can copy its contents
+	"runArgs": [ "-v", "${env:HOME}/.ssh:/root/.ssh-localhost:ro" ],
+	// Copy the contents to the correct location and set permissions
+	"postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }

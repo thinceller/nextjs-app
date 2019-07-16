@@ -13,7 +13,7 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils 2>&1 \
     #
     # Verify git and needed tools are installed
-    && apt-get install -y git procps \    
+    && apt-get install -y git procps \
     #
     # Remove outdated yarn from /opt and install via package 
     # so it can be easily updated via apt-get upgrade yarn
@@ -26,8 +26,8 @@ RUN apt-get update \
     && apt-get update \
     && apt-get -y install --no-install-recommends yarn \
     #
-    # Install tslint and typescript globally
-    && npm install -g tslint typescript \
+    # Install eslint globally
+    && npm install -g eslint typescript \
     #
     # Clean up
     && apt-get autoremove -y \
